@@ -6,3 +6,6 @@ Convert picture to text
 
 ### PicToTextStreamlit.py
 Convert picture to text use streamlit
+
+### bot.py
+telegram bot for convert audio and img to text
