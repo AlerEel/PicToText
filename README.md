@@ -4,5 +4,5 @@ Convert picture to text
 2. Install packages for requirements.txt
    2.1 pip install -r requirements.txt
 
-PicToTextStreamlit.py
+### PicToTextStreamlit.py
 Convert picture to text use streamlit
