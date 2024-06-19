@@ -6,7 +6,7 @@ import easyocr
 from PIL import Image
 import io
 
-TOKEN = ''
+TOKEN = '7103546657:AAGnxgN-0tNCwZpBLkBDaVH7BchzFRBqFqk'
 bot = telebot.TeleBot(token=TOKEN)
 
 # путь к исполняемому файлу.
