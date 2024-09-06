@@ -9,3 +9,8 @@ Convert picture to text use streamlit
 
 ### bot.py
 telegram bot for convert audio and img to text
+
+### PicToTextFastApi
+Convert image to text use Fastapi
+1. main.py - function for convert
+2. app.py - fastapi application

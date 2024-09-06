@@ -62,6 +62,34 @@ def voice_processing(message):
     else:
         bot.reply_to(message, 'Пересланных голосовых сообщений не найдено')
 
+@bot.message_handler(content_types=['audio'])
+def voice_processing(message):
+    # проверка на наличие пересланного сообщения
+    if message:
+        bot.reply_to(message, 'Подождите немного, я обрабатываю сообщение :)')
+
+        file_id = message.audio.file_id
+        file = bot.get_file(file_id)
+        file_path = file.file_path
+
+        # загрузка голосовой записи с серверов Telegram
+        downloaded_file = bot.download_file(file_path)
+        with open('audio.mp3', 'wb') as new_file:
+            new_file.write(downloaded_file)
+
+        # преобразование голосовой записи в текст
+        audio = AudioFileClip('audio.mp3')
+        audio.write_audiofile('audio.wav')
+        recognizer = sr.Recognizer()
+        with sr.AudioFile('audio.wav') as source:
+            audio_data = recognizer.record(source)
+            text = recognizer.recognize_google(audio_data, language='ru-RU')
+
+        # ответ на голосовое сообщение текстом
+        bot.reply_to(message, text)
+    else:
+        bot.reply_to(message, 'Пересланных голосовых сообщений не найдено')
+
 @bot.message_handler(content_types=['photo'])
 def photo(message):
     fileID = message.photo[-1].file_id
