@@ -36,4 +36,4 @@ jobs:
 
       - name: Run tests  # Запускаем тесты
         run: |
-          python -m unittest discover -s . -p "test_*.py"  # Находим и запускаем все тесты
+          python -m unittest discover -s . -p "*_test.py"  # Находим и запускаем все тесты
